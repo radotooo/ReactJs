@@ -1,7 +1,7 @@
 import React from "react";
 import StarIcon from "@material-ui/icons/Star";
 import "./product.css";
-import { CircularProgress } from "@material-ui/core";
+
 import { useStateValue } from "./StateProvider";
 
 function Product({ id, title, image, price, rating, buttonValue }) {

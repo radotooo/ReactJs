@@ -1,5 +1,3 @@
-import { returnTrue } from "react-currency-format/lib/utils";
-
 export const initialState = {
   basket: [],
   user: null,
