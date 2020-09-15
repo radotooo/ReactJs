@@ -2,11 +2,12 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors"
 import Cards from "./dbCards.js"
+import connectionString from "./dbAccess.js"
 
 // App Config
 const app = express();
 const port = process.env.PORT || 8001
-const connection_string = `mongodb+srv://admin:Fodij8SXsyda3Kwh@cluster0.8xlzq.mongodb.net/tinderdb?retryWrites=true&w=majority`
+const connection_string = connectionString
 // Middlewares
 
 app.use(express.json()) // this needet or express will not recognise json
