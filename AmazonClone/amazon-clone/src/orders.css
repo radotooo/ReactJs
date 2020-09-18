@@ -1,0 +1,15 @@
+.order {}
+
+
+.orders__container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 80px;
+    margin: auto;
+}
+
+.orders>h1 {
+    margin: 30px 0;
+}
