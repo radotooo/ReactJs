@@ -15,7 +15,7 @@ function Header() {
 
       <img
         className="header__logo"
-        src="https://b7.pngbarn.com/png/955/943/tinder-logo-graphics-online-dating-applications-logo-free-fire-png-clip-art.png"
+        src="https://1000logos.net/wp-content/uploads/2018/07/tinder-logo.png"
       />
       <IconButton>
         <ForumIcon fontSize="large" className="header__icon" />

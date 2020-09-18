@@ -9,4 +9,9 @@ body {
 
 }
 
-code {}
+.app {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 60vw;
+}
