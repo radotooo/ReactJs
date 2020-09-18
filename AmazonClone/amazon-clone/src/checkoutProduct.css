@@ -2,6 +2,10 @@
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: rgb(237, 237, 237);
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 3px;
 
 }
 
@@ -11,10 +15,14 @@
 
 .checkoutProduct__info>button {
     background: #f0c14b;
+    cursor: pointer;
+    padding: 3px 15px;
     border: 1px solid;
+    border-radius: 3px;
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    ;
 }
 
 .checkoutProduct__image {
