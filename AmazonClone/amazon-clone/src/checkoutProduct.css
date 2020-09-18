@@ -33,6 +33,7 @@
 
 .checkoutProduct__rating {
     display: flex;
+    color: #a88734;
 }
 
 .checkoutProduct__title {
