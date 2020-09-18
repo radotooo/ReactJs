@@ -11,9 +11,7 @@ function Home() {
           src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
           alt="advertise"
         />
-
         <div className="home__row first__row">
-
           <Product
             id={1}
             title="Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal Fabric"
@@ -21,7 +19,6 @@ function Home() {
             image="https://images-na.ssl-images-amazon.com/images/I/61mhy8eQGEL._AC_SL1000_.jpg"
             rating={5}
           />
-
           <Product
             id={2}
             title="The lean startup"
@@ -29,9 +26,7 @@ function Home() {
             image="https://images-na.ssl-images-amazon.com/images/I/41aFYRhjD5L._SL1000_.jpg"
             rating={5}
           />
-
         </div>
-
         <div className="home__row">
           <Product
             id={3}
@@ -40,7 +35,6 @@ function Home() {
             image="https://images-na.ssl-images-amazon.com/images/I/71CLO1n-iPL._AC_SL1500_.jpg"
             rating={4}
           />
-
           <Product
             id={4}
             title="The lean startup"
@@ -66,7 +60,6 @@ function Home() {
             rating={1}
           />
         </div>
-
         <div className="home__row">{/* product */}</div>
       </div>
     </div>
