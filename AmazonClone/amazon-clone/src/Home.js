@@ -8,19 +8,20 @@ function Home() {
       <div className="home__container">
         <img
           className="home__img"
-          src=" https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
+          src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
           alt="advertise"
         />
 
-        <div className="home__row">
+        <div className="home__row first__row">
+
           <Product
             id={1}
             title="Echo Dot (3rd Gen) - Smart speaker with Alexa - Charcoal Fabric"
             price={29.99}
-            image="https://images-na.ssl-images-amazon.com/images/I/61u48FEs0rL._AC_SL1000_.jpg"
+            image="https://images-na.ssl-images-amazon.com/images/I/61mhy8eQGEL._AC_SL1000_.jpg"
             rating={5}
-            button
           />
+
           <Product
             id={2}
             title="The lean startup"
@@ -28,6 +29,7 @@ function Home() {
             image="https://images-na.ssl-images-amazon.com/images/I/41aFYRhjD5L._SL1000_.jpg"
             rating={5}
           />
+
         </div>
 
         <div className="home__row">

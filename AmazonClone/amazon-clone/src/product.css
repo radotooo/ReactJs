@@ -1,32 +1,30 @@
 .product {
     display: flex;
-    flex-direction: column;
-
     align-items: center;
     justify-content: flex-end;
-    margin: 10px;
-    padding: 20px;
-    width: 100%;
+    flex-direction: column;
     max-height: 400px;
-    min-width: 100px;
-
-    background-color: white;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    margin: 10px;
     z-index: 1;
-
 }
 
+.product__title__truncate {
+    max-height: 2.2em;
+    overflow: hidden;
+}
 
 .product>img {
     max-height: 200px;
-    width: 100%;
-    /* The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container. */
+    max-width: 200px;
     object-fit: contain;
     margin-bottom: 15px;
 }
 
 .product>.product__info {
     align-self: flex-start;
-
 }
 
 .product__price {
@@ -41,9 +39,6 @@
 .product__info {
     height: 100px;
     margin-bottom: 15px;
-
-
-
 }
 
 .product>button {

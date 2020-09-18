@@ -19,12 +19,13 @@ function Payment() {
 
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
-
   const [error, setError] = useState(null);
+
   const [disabled, setDisable] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
 
   useEffect(() => {
+
     const getClientSecret = async () => {
       const response = await axios({
         method: "post",
@@ -35,7 +36,7 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
-  console.log("the secret is >>>>", clientSecret);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,9 +71,9 @@ function Payment() {
       });
   };
 
-  const handleChange = (e) => {
-    setDisable(e.empty);
-    setError(e.error ? e.error.message : "");
+  const handleChange = (event) => {
+    setDisable(event.empty);
+    setError(event.error ? event.error.message : "");
   };
 
   return (
