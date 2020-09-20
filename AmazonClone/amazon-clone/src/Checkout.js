@@ -3,10 +3,27 @@ import "./checkout.css";
 import Subtotal from "./Subtotal";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import userEvent from "@testing-library/user-event";
+
 
 function Checkout() {
   const [{ basket, user }, dispatch] = useStateValue();
+
+  const basketContent = (basket) => {
+    if (basket.length > 0) {
+      return basket.map((item) => (
+        <CheckoutProduct
+          id={item.id}
+          title={item.title}
+          image={item.image}
+          price={item.price}
+          rating={item.rating}
+        />
+      ))
+    } else {
+      return <div className="checkout__emptyBasketImg"><img src="https://dthindia.in/empty-cart.png" alt="cart" /></div>
+    }
+  }
+
 
   return (
     <div className="checkout">
@@ -19,16 +36,8 @@ function Checkout() {
         <div>
           <h3>Hello {user ? user.email : "Guest"}</h3>
           <h2 className="checkout__title">Your shopping Basket</h2>
+          {basketContent(basket)}
 
-          {basket.map((item) => (
-            <CheckoutProduct
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-            />
-          ))}
         </div>
       </div>
 
