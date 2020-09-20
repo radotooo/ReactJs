@@ -1,6 +1,7 @@
 .payment__container {
     margin: auto;
     max-width: 1300px;
+    min-height: 83vh;
     background-color: white;
 }
 

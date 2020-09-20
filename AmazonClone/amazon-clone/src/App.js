@@ -13,13 +13,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Footer from "./Footer";
 
 const promise = loadStripe(
   "pk_test_51HQbDJDTudZ2fu5xoUwfzMQC1XURuaiso6ssCqBxNOa8IdJtQBRcdOsXO0xcDUeXRLtylujYe43WdRQBDFbXkqEI006QfAQGuN"
 );
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [{ }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -63,6 +64,8 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <Footer />
+
       </div>
     </Router>
   );

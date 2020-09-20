@@ -1,11 +1,10 @@
-.order {}
-
-
 .orders__container {
     max-width: 1000px;
+    min-height: 83vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
+    align-content: center;
     padding: 20px 80px;
     margin: auto;
 }

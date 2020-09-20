@@ -34,7 +34,6 @@ function Orders() {
     <div className="orders">
       <div className="orders__container">
         <h1>Your Orders</h1>
-
         <div className='orders__order'>
           {orders?.map(order => (
             <Order order={order} />
