@@ -7,6 +7,7 @@ function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("")
 
   const signIn = (e) => {
     e.preventDefault();
@@ -16,7 +17,31 @@ function Login() {
       .then((auth) => {
         history.push("/");
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        console.log(e.message);
+        console.log(e);
+
+        switch (e.code) {
+          case "auth/wrong-password":
+            setError("No such user or wrong password!")
+            break;
+          case "auth/user-not-found":
+            setError("No such user or wrong password!")
+            break;
+          case "auth/invalid-email":
+            setError("Email is required")
+            break;
+          case "auth/invalid-password":
+            setError("Invalid password")
+            break;
+
+
+
+          default:
+            break;
+        }
+
+      });
   };
 
   const register = (e) => {
@@ -25,9 +50,10 @@ function Login() {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
-        history.push();
+        history.push("/");
       })
       .catch((e) => console.log(e.message));
+
   };
 
   return (
@@ -58,6 +84,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
+          <p className="error_msg">{error}</p>
           <button
             className="login__signInButton"
             onClick={signIn}
@@ -69,9 +96,10 @@ function Login() {
 
         <p>By signing-in you agree to Amazon`s Conditions of Use & Sale.</p>
 
-        <button className="login__registerButton" onClick={register}>
+        <button className="login__registerButton" onClick={(e) => register(e)}>
           Create you amazon account
         </button>
+
       </div>
     </div>
   );

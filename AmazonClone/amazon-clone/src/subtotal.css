@@ -28,4 +28,15 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    cursor: pointer;
+}
+
+.subtotal__errorMsg {
+    font-size: 0.8em;
+    color: red;
+}
+
+.subtotal__button_errorMsg {
+    font-size: 0.8em;
+    color: red;
 }
