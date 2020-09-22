@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./subtotal.css";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./StateProvider";
 import { getBasketTotal } from "./reducer";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Subtotal() {
   const history = useHistory();
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
+  const [errorMsg, setErrorMsg] = useState("");
+  const [showButton, setShowButton] = useState(false)
+
+  const validation = () => {
+    basket.length > 0 ? history.push("/payment") : setErrorMsg("Your basket is empty")
+  };
+
+  const logInButton = () => (
+    <div className="subtotal__button_errorMsg">You must <Link to="/login">login</Link> to continue..</div>
+  )
 
   return (
     <div className="subtotal">
@@ -30,9 +40,14 @@ function Subtotal() {
         prefix={"$"}
       />
 
-      <button onClick={(e) => history.push("/payment")}>
+      <button onClick={(e) => {
+        user ? validation() : setShowButton(true)
+      }}>
         Proceed to Checkout
       </button>
+      <p className="subtotal__errorMsg">{errorMsg}</p>
+      {showButton && logInButton()}
+
     </div>
   );
 }

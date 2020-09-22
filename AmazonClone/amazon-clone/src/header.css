@@ -63,6 +63,14 @@
     margin-left: 10px;
     margin-right: 10px;
     color: white;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 0.2em;
+
+}
+
+.header__option:hover {
+    border: 1px solid white;
 }
 
 .header__optionLineOne {
@@ -78,6 +86,13 @@
     display: flex;
     align-items: center;
     color: white;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 0.2em;
+}
+
+.header__optionBasket:hover {
+    border-color: white;
 }
 
 .header__basketCount {
