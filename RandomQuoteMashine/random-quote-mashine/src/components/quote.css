@@ -1,0 +1,109 @@
+body {
+  background-color: royalblue;
+}
+
+.quote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+}
+
+.quote__container {
+  flex-direction: column;
+  background-color: white;
+  padding: 2rem 3.5rem;
+  width: 50%;
+  min-width: 300px;
+  max-width: 600px;
+  border-radius: 0.8em;
+}
+
+.quote__icon__end {
+  position: absolute;
+}
+
+.quote__icon__start {
+  transform: rotate(180deg);
+  font-size: inherit;
+}
+
+.quote__text__container {
+  margin-bottom: 1rem;
+}
+
+.quote__text__container > #text {
+  font-size: 24px;
+  font-family: "Lora", sans-serif, Arial;
+  position: relative;
+}
+
+.quote__text__container > #author {
+  font-size: 16px;
+  text-align: end;
+  margin-top: 1em;
+}
+
+.quote__container > .quote__buttons__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quote__button {
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 5px;
+  background-color: blue;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.quote__button:hover {
+  transform: scale(1.05);
+}
+
+.quote__socialMediaButtons__container > * {
+  margin-left: 5px;
+  outline: 0;
+  transition: all 0.3s ease-in-out;
+}
+.quote__socialMediaButtons__container > *:hover {
+  transform: scale(1.07);
+}
+
+@media (max-width: 1200px) {
+  .quote__text__container > #text {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 850px) {
+  .quote__text__container > #text {
+    font-size: 20px;
+  }
+
+  .quote__container {
+    padding: 1rem 2rem;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+  }
+}
