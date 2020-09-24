@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import MyContext from '../MyContext'
+import Modal from './Modal'
+import Quote from './Quote'
+import "./styles/home.css"
 
 export default function Home() {
-
+    const { value, setValue } = useContext(MyContext)
     const [color, setColor] = useState('#002366')
 
 
@@ -16,8 +19,9 @@ export default function Home() {
 
     return (
 
-        <div className="quote" style={{ backgroundColor: color }}>
-
+        <div className="home" style={{ backgroundColor: color }}>
+            <Modal bkgColor={color} />
+            <Quote bkgColor={color} getColor={getColor} />
         </div>
     )
 }

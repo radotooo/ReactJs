@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Modal from './components/Modal';
-import Quote from './components/Quote';
+import Home from './components/Home';
+import MyContext from './MyContext';
+
 
 function App() {
+
+  const [value, setValue] = useState(false)
+
   return (
     <div className="App">
-
-      <Quote />
+      <MyContext.Provider value={{ value, setValue }}>
+        <Home />
+      </MyContext.Provider>
     </div>
   );
 }
