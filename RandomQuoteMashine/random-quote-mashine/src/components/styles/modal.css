@@ -1,21 +1,22 @@
 .modal {
-
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
     display: flex;
-    position: relative;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
+    position: fixed;
+    transition: 0.2s ease-in-out;
 }
 
 .modal__container {
     background-color: white;
-    padding: 1rem;
+    padding: 1.5rem;
     width: 50%;
     min-width: 300px;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 0.8em;
-
 }
 
 .modal__button_container {
@@ -24,21 +25,17 @@
     justify-content: space-evenly;
 }
 
-/* .form {
-    flex-direction: column;
-
+.fadeIn {
+    transform: scale(1);
+    opacity: 1;
 }
 
-.container>input {
-    padding: 1px;
-    background-color: red;
-}
+.fadeOut {
+    z-index: 0;
+    opacity: 0;
+    transform: scale(0);
 
-.MuiTextField-root>input {
-   
-    padding: 10px;
-    outline-color: red !important;
-} */
+}
 
 .modal__button {
     color: #fff;
