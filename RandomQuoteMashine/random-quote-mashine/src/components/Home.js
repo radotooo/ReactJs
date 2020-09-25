@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react'
-import MyContext from '../MyContext'
+import React, { useState } from 'react'
 import Modal from './Modal'
 import Quote from './Quote'
 import "./styles/home.css"
 
 export default function Home() {
-    const { value, setValue } = useContext(MyContext)
+
     const [color, setColor] = useState('#002366')
 
 

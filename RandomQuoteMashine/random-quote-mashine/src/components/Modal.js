@@ -8,13 +8,13 @@ import MyContext from '../MyContext';
 const useStyle = makeStyles({
     root: {
         marginBottom: 10
-
     },
+
 });
 
 export default function Modal(props) {
 
-    const { value, setValue } = useContext(MyContext)
+    const { showModal, setShowModal } = useContext(MyContext)
     const classes = useStyle();
 
     const [quoteState, setQuoteState] = useState({
@@ -31,7 +31,7 @@ export default function Modal(props) {
 
     const cssStyle = [
         "modal",
-        value ? "fadeIn" : "fadeOut"
+        showModal ? "fadeIn" : "fadeOut"
     ]
 
     const handleSubmit = (e) => {
@@ -48,6 +48,8 @@ export default function Modal(props) {
                 error: true,
                 errorMsg: "Author is Required!"
             }));
+        } else {
+            //fetch data
         }
     }
 
@@ -97,8 +99,14 @@ export default function Modal(props) {
                         </div>
                     </div>
                     <div className="modal__button_container">
-                        <a className="modal__button" onClick={() => handleSubmit()} style={{ backgroundColor: props.bkgColor }}>Submit</a>
-                        <a className="modal__button" style={{ backgroundColor: props.bkgColor }} onClick={(e) => { setValue(!value); resetState(); }}> Cancel</a>
+                        <a className="modal__button" onClick={() => handleSubmit()} style={{
+                            backgroundColor: props.bkgColor
+                        }}>Submit</a>
+                        <a className="modal__button" style={{
+                            backgroundColor: props.bkgColor
+                        }} onClick={(e) => {
+                            setShowModal(!showModal); resetState();
+                        }}> Cancel</a>
                     </div>
                 </form>
             </div>
