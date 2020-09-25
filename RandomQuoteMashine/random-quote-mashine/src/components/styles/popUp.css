@@ -1,0 +1,25 @@
+.MuiSnackbarContent-root {
+    background-color: rgb(34, 184, 79) !important;
+    max-width: 320px;
+    min-width: 320px !important;
+}
+
+.MuiSnackbarContent-message {
+    font-size: 20px;
+    margin-right: 3px;
+}
+
+.MuiSnackbarContent-action {
+    padding: 0 !important;
+    margin: 0 5px !important;
+}
+
+.MuiIconButton-root {
+    color: white !important;
+}
+
+@media (min-width: 600px) {
+    .MuiSnackbarContent-root {
+        flex-grow: unset !important;
+    }
+}
