@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useContext } from 'react'
 import "./styles/quote.css"
 import FormatQuoteSharpIcon from '@material-ui/icons/FormatQuoteSharp';
 import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon } from "react-share";
-import Modal from './Modal';
 import MyContext from '../MyContext';
 
 
 
 export default function Quote(props) {
 
-    const { value, setValue } = useContext(MyContext)
+    const { showModal, setShowModal } = useContext(MyContext)
 
 
     return (
@@ -22,8 +22,8 @@ export default function Quote(props) {
             </div>
 
             <div className="quote__buttons__container">
-                <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => props.getColor()}>New Quote</a>
-                <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => setValue(!value)}>Add</a>
+                <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => props.getColor()}>New</a>
+                <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => setShowModal(!showModal)}>Add</a>
                 <div className="quote__socialMediaButtons__container">
                     <TwitterShareButton>
                         <TwitterIcon className="twitter" size={42} round={true} />

@@ -6,11 +6,11 @@ import MyContext from './MyContext';
 
 function App() {
 
-  const [value, setValue] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <div className="App">
-      <MyContext.Provider value={{ value, setValue }}>
+      <MyContext.Provider value={{ showModal, setShowModal }}>
         <Home />
       </MyContext.Provider>
     </div>
