@@ -2,6 +2,8 @@ import express from "express"
 import Quote from "./models/Quote.js"
 import connectDB from "./config/db.js"
 
+import cors from "cors"
+
 const app = express()
 const PORT = process.env.PORT || 5000;
 
@@ -9,9 +11,10 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 //Middleware
+app.use(cors())
 app.use(express.json())
 
-app.post('/', async (req, res) => {
+app.post('/api', async (req, res) => {
     const { title, author } = req.body
     try {
         const quote = new Quote({
@@ -25,10 +28,11 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.get('/', async (req, res) => {
+app.get('/api', async (req, res) => {
     try {
         var result = await Quote.aggregate([{ $sample: { size: 1 } }])
         res.send(result)
+        console.log(result);
     } catch (error) {
         res.send(error.message)
     }
