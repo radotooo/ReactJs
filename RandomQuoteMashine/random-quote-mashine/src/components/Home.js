@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
 import Quote from './Quote'
 import "./styles/home.css"
@@ -6,6 +6,19 @@ import "./styles/home.css"
 export default function Home() {
 
     const [color, setColor] = useState('#002366')
+
+    const [data, setData] = useState({})
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('https://rnnd-app20.herokuapp.com/api')
+            const data = await response.json();
+            const { title, author } = data[0];
+            setData({ title, author })
+        }
+        fetchData()
+    }, [])
 
 
     const getColor = () => {
@@ -17,10 +30,11 @@ export default function Home() {
     }
 
     return (
-
-        <div className="home" style={{ backgroundColor: color }}>
-            <Modal bkgColor={color} />
-            <Quote bkgColor={color} getColor={getColor} />
+        <div>
+            <div className="home" style={{ backgroundColor: color }}>
+                <Modal bkgColor={color} />
+                <Quote bkgColor={color} getColor={getColor} data={data} />
+            </div>
         </div>
     )
 }

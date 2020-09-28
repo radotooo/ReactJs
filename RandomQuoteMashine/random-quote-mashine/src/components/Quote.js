@@ -16,9 +16,9 @@ export default function Quote(props) {
         <div className="quote__container">
 
             <div className="quote__text__container" style={{ "color": props.bkgColor }} >
-                <p id="text"><FormatQuoteSharpIcon className="quote__icon__start" fontSize="inherit" />Education is the most powerful weapon which you can use to change the world.
+                <p id="text"><FormatQuoteSharpIcon className="quote__icon__start" fontSize="inherit" />{props.data.title}
                     <FormatQuoteSharpIcon className="quote__icon__end" fontSize="inherit" /></p>
-                <p id="author">- Rado Radov</p>
+                <p id="author">- {props.data.author}</p>
             </div>
 
             <div className="quote__buttons__container">
@@ -28,7 +28,7 @@ export default function Quote(props) {
                     <TwitterShareButton>
                         <TwitterIcon className="twitter" size={42} round={true} />
                     </TwitterShareButton>
-                    <FacebookShareButton className="facebook" quote="dsadasdasdadsa" url="google.com">
+                    <FacebookShareButton className="facebook" quote={props.data.title} url="https://pensive-boyd-fe627b.netlify.app">
                         <FacebookIcon size={42} round={true} />
                     </FacebookShareButton>
                 </div>
