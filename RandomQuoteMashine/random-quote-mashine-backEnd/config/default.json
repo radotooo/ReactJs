@@ -1,0 +1,3 @@
+{
+    "mongoURL": "mongodb+srv://radotooo:rado1912@cluster0.rbp5m.mongodb.net/randomQuoteGenDB?retryWrites=true&w=majority"
+}
