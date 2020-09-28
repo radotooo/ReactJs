@@ -4,6 +4,7 @@ import "./styles/modal.css"
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from "@material-ui/core/styles";
 import MyContext from '../MyContext';
+import PopUp from "./PopUp";
 
 const useStyle = makeStyles({
     root: {
@@ -15,6 +16,8 @@ const useStyle = makeStyles({
 export default function Modal(props) {
 
     const { showModal, setShowModal } = useContext(MyContext)
+    const { showPopUp, setShowPopUp } = useContext(MyContext)
+
     const classes = useStyle();
 
     const [quoteState, setQuoteState] = useState({
@@ -34,6 +37,23 @@ export default function Modal(props) {
         showModal ? "fadeIn" : "fadeOut"
     ]
 
+    const fetchData = async () => {
+        const request = await fetch('https://rnnd-app20.herokuapp.com/api', {
+            method: 'POST',
+            body: JSON.stringify({
+                title: quoteState.input,
+                author: authorState.input,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8'
+            }
+        })
+        console.log(request)
+        if (request.status === 200) {
+            setShowPopUp(true)
+        }
+    }
+
     const handleSubmit = (e) => {
         if (quoteState.input.trim().length === 0) {
             setQuoteState((state) => ({
@@ -48,8 +68,9 @@ export default function Modal(props) {
                 error: true,
                 errorMsg: "Author is Required!"
             }));
-        } else {
-            //fetch data
+        }
+        if (quoteState.input.trim().length > 0 && authorState.input.trim().length > 0) {
+            fetchData()
         }
     }
 
@@ -109,6 +130,7 @@ export default function Modal(props) {
                         }}> Cancel</a>
                     </div>
                 </form>
+                <PopUp />
             </div>
         </div >
     )
