@@ -44,7 +44,7 @@ export default function Quote(props) {
             </div>
 
             <div className="quote__buttons__container">
-                <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => { props.getColor(); fetchData() }}>{showSpinner ? <CircularProgress size={15} /> : "New"}</a>
+                <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => { props.getColor(); fetchData() }}>{showSpinner ? <CircularProgress size={14} /> : "New"}</a>
                 <a className="quote__button" style={{ "backgroundColor": props.bkgColor }} onClick={() => setShowModal(!showModal)}>Add</a>
                 <div className="quote__socialMediaButtons__container">
                     <TwitterShareButton title="Random Quote Machine" url="https://pensive-boyd-fe627b.netlify.app">

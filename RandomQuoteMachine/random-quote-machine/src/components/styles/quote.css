@@ -68,6 +68,7 @@
 
 .MuiCircularProgress-colorPrimary {
   color: white !important;
+  margin-left: 9px;
 }
 
 @media (max-width: 1200px) {
