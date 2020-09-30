@@ -10,34 +10,31 @@ const useStyle = makeStyles({
     root: {
         marginBottom: 10
     },
-
 });
 
 export default function Modal(props) {
 
     const { showModal, setShowModal } = useContext(MyContext)
-    const { showPopUp, setShowPopUp } = useContext(MyContext)
+    const { setShowPopUp } = useContext(MyContext)
 
     const classes = useStyle();
-
-    const [quoteState, setQuoteState] = useState({
-        input: '',
-        error: false,
-        errorMsg: ""
-    })
-
-    const [authorState, setAuthorState] = useState({
-        input: '',
-        error: false,
-        errorMsg: ""
-    })
-
     const cssStyle = [
         "modal",
         showModal ? "fadeIn" : "fadeOut"
     ]
 
-    const fetchData = async () => {
+    const [quoteState, setQuoteState] = useState({
+        input: '',
+        error: false
+    })
+
+    const [authorState, setAuthorState] = useState({
+        input: '',
+        error: false
+    })
+
+
+    const submitData = async () => {
         const request = await fetch('https://rnnd-app20.herokuapp.com/api', {
             method: 'POST',
             body: JSON.stringify({
@@ -48,42 +45,41 @@ export default function Modal(props) {
                 'Content-type': 'application/json; charset=UTF-8'
             }
         })
-        console.log(request)
         if (request.status === 200) {
             setShowPopUp(true)
+            resetState()
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         if (quoteState.input.trim().length === 0) {
             setQuoteState((state) => ({
                 ...state,
-                error: true,
-                errorMsg: "Quote is Required!"
+                error: true
             }));
         }
         if (authorState.input.trim().length === 0) {
             setAuthorState((state) => ({
                 ...state,
                 error: true,
-                errorMsg: "Author is Required!"
             }));
         }
         if (quoteState.input.trim().length > 0 && authorState.input.trim().length > 0) {
-            fetchData()
+            submitData()
         }
     }
 
     const resetState = () => {
         setQuoteState((state) => ({
             ...state,
-            error: false,
-            errorMsg: ""
+            input: '',
+            error: false
         }));
+
         setAuthorState((state) => ({
             ...state,
-            error: false,
-            errorMsg: ""
+            input: '',
+            error: false
         }));
     }
 
@@ -96,10 +92,11 @@ export default function Modal(props) {
                             className={classes.root}
                             id="outlined-multiline-static"
                             label="Quote"
+                            value={quoteState.input}
                             multiline
                             rows={3}
                             error={quoteState.error}
-                            helperText={quoteState.errorMsg}
+                            helperText={quoteState.error ? "Quote is Required!" : ''}
                             onChange={(e) => { setQuoteState({ ...e, input: e.target.value }) }}
                             fullWidth
                             variant="outlined"
@@ -111,10 +108,11 @@ export default function Modal(props) {
                             <TextField
                                 className={classes.root}
                                 label="Author Name"
+                                value={authorState.input}
                                 margin="dense"
                                 variant="outlined"
                                 error={authorState.error}
-                                helperText={authorState.errorMsg}
+                                helperText={authorState.error ? "Author is Required!" : ''}
                                 onChange={(e) => { setAuthorState({ ...e, input: e.target.value }) }}
                             />
                         </div>

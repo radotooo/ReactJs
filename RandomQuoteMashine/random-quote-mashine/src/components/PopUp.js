@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Snackbar from '@material-ui/core/Snackbar';
 import Slide from '@material-ui/core/Slide';
 import "./styles/popUp.css"
@@ -13,9 +13,12 @@ function SlideTransition(props) {
 export default function PopUp() {
 
     const { showPopUp, setShowPopUp } = useContext(MyContext)
+    const { setShowModal } = useContext(MyContext)
+
 
     const handleClose = () => {
         setShowPopUp(false)
+        setShowModal(false)
     };
 
     return (
