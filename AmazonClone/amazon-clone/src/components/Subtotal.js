@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./subtotal.css";
+import "../styles/subtotal.css";
 import CurrencyFormat from "react-currency-format";
-import { useStateValue } from "./StateProvider";
-import { getBasketTotal } from "./reducer";
+import { useStateValue } from "../store/StateProvider";
+import { getBasketTotal } from "../store/reducer";
 import { Link, useHistory } from "react-router-dom";
 
 function Subtotal() {
