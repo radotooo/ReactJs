@@ -1,19 +1,19 @@
 import "./App.css";
 
-import Header from "./Header";
-import Home from "./Home";
-import Orders from "./Orders";
-import Payment from "./Payment";
-import Checkout from "./Checkout";
-import Login from "./Login";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Orders from "./components/Orders";
+import Payment from "./components/Payment";
+import Checkout from "./components/Checkout";
+import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 import React, { useEffect } from "react";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "./store/StateProvider";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { auth } from "./firebase";
+import { auth } from "./store/firebase";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import Footer from "./Footer";
 
 const promise = loadStripe(
   "pk_test_51HQbDJDTudZ2fu5xoUwfzMQC1XURuaiso6ssCqBxNOa8IdJtQBRcdOsXO0xcDUeXRLtylujYe43WdRQBDFbXkqEI006QfAQGuN"
