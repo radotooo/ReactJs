@@ -1,23 +1,32 @@
-# React Amazon Look-alike
+# Amazon Clone
 
-## :point_right: Project Introduction :point_left:
+This is a code along and extended by myself tutorial following the 5 day react course hosted on Facebook by 'Clever Programmer'.
 
-An amazon look-alike practice project, built with React.
+The aim is to build a serverless replica of the Amazon website using React, Stripe and Firebase.
 
-## :hammer: Used technologies
-
-- React
-- JavaScript
-- HTML
-- CSS
-
-## :floppy_disk: Database
+## Built With
 
 - Firebase
+  - Functions
+- React
+  - Hooks
+  - Context API
+  - Axios
+  - Router
 
-## Link
+## Functionality
 
-Currently the app is not deployed.
+- Stripe payments
+- Users
+- Shopping cart
+- Checkout
+- Orders history
+
+## Live Demo
+
+[Live Demo Link](https://clone-aa0a9.web.app/)
+
+<img src="public/screencapture-clone-aa0a9-web-app-2020-10-01-23_45_23.png" width="250"  >
 
 ## Installation and Setup Instructions
 
@@ -28,10 +37,6 @@ Clone down this repository. You will need `node` and `npm` installed globally on
 Installation:
 
 `npm install`
-
-To Run Test Suite:
-
-`npm test`
 
 To Start Server:
 

@@ -18,9 +18,6 @@ function Login() {
         history.push("/");
       })
       .catch((e) => {
-        console.log(e.message);
-        console.log(e);
-
         switch (e.code) {
           case "auth/wrong-password":
             setError("No such user or wrong password!")
@@ -34,9 +31,6 @@ function Login() {
           case "auth/invalid-password":
             setError("Invalid password")
             break;
-
-
-
           default:
             break;
         }
@@ -52,7 +46,22 @@ function Login() {
       .then((auth) => {
         history.push("/");
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        switch (e.code) {
+          case "auth/invalid-email":
+            setError(e.message)
+            break;
+          case "auth/email-already-in-use":
+            setError(e.message)
+            break;
+          case "auth/weak-password":
+            setError(e.message)
+            break;
+          default:
+            break;
+        }
+      });
+
 
   };
 

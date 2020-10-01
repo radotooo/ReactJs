@@ -31,6 +31,8 @@ function Payment() {
         method: "post",
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       });
+
+      console.log(response.data.clientSecret);
       setClientSecret(response.data.clientSecret);
     };
     getClientSecret();
